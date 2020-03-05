@@ -2,7 +2,7 @@ import socket
 from socket import timeout
 
 UDP_IP = '127.0.0.1'
-UDP_PORT = 4001
+UDP_PORT = 4000
 BUFFER_SIZE = 1024
 MESSAGE = "ping"
 SEPERATOR = "|"
@@ -27,8 +27,8 @@ def send(id = 0):
                         data,ip = s.recvfrom(BUFFER_SIZE)
                     except timeout:
                         continue
-                    data = data.decode().split(SEPERATOR)
-                    ack = data[0]
+                    data_decoded = data.decode().split(SEPERATOR)
+                    ack = data_decoded[0]
                     if(int(ack) == sequence):
                         print(f"received ACK({ack})from the server{ip}.")
                         break

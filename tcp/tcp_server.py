@@ -26,7 +26,7 @@ def client_thread(conn, addr):
     while true:
         data = conn.recv(BUFFER_SIZE).decode()
         if not data :   
-            print('No data received.')
+            # print('No data received.')
             true = False
             break
         print(f"received data:{data}")
